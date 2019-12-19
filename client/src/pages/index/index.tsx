@@ -2,7 +2,8 @@ import Taro, { Component, Config } from '@tarojs/taro'
 import { View, Text } from '@tarojs/components'
 import './index.scss'
 
-import Login from '../../components/login/index'
+import Login from '../../components/login/index.weapp'
+import NavBar from '../../components/navbar/index.weapp'
 
 export default class Index extends Component {
 
@@ -19,7 +20,9 @@ export default class Index extends Component {
 
   componentWillMount () { }
 
-  componentDidMount () { }
+  componentDidMount () { 
+
+  }
 
   componentWillUnmount () { }
 
@@ -30,6 +33,7 @@ export default class Index extends Component {
   render () {
     return (
       <View className='index'>
+        <NavBar/>
         <Login/>
       </View>
     )

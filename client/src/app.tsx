@@ -1,13 +1,17 @@
 import Taro, { Component, Config } from '@tarojs/taro'
+import { onError, Provider } from '@tarojs/mobx'
+import StatusBarHeight from './store/status_bar_height'
 import Index from './pages/index'
 
 import './app.scss'
 
-// 如果需要在 h5 环境中开启 React Devtools
-// 取消以下注释：
-// if (process.env.NODE_ENV !== 'production' && process.env.TARO_ENV === 'h5')  {
-//   require('nerv-devtools')
-// }
+onError(error => {
+  console.log('mobx global error listener:', error)
+})
+
+const store = {
+  StatusBarHeight
+}
 
 class App extends Component {
 
@@ -24,14 +28,14 @@ class App extends Component {
     ],
     window: {
       backgroundTextStyle: 'light',
-      navigationBarBackgroundColor: '#fff',
-      navigationBarTitleText: 'WeChat',
-      navigationBarTextStyle: 'black'
+      navigationBarBackgroundColor: '#41b378',
+      navigationBarTextStyle: 'white',
+      navigationStyle: 'custom'
     },
     cloud: true
   }
 
-  componentDidMount () {
+  componentDidMount() {
     if (process.env.TARO_ENV === 'weapp') {
       Taro.cloud.init({
         env: 'yuntest-wcqeq'
@@ -39,17 +43,19 @@ class App extends Component {
     }
   }
 
-  componentDidShow () {}
+  componentDidShow() { }
 
-  componentDidHide () {}
+  componentDidHide() { }
 
-  componentDidCatchError () {}
+  componentDidCatchError() { }
 
   // 在 App 类中的 render() 函数没有实际作用
   // 请勿修改此函数
-  render () {
+  render() {
     return (
-      <Index />
+      <Provider store={store}>
+        <Index />
+      </Provider>
     )
   }
 }
