@@ -3,7 +3,9 @@ import { onError, Provider } from '@tarojs/mobx'
 import StatusBarHeight from './store/status_bar_height'
 import Index from './pages/index'
 
+import './assets/fonts/iconfont.scss';
 import './app.scss'
+
 
 onError(error => {
   console.log('mobx global error listener:', error)
@@ -24,14 +26,35 @@ class App extends Component {
    */
   config: Config = {
     pages: [
-      'pages/index/index'
+      'pages/index/index',
+      'pages/setting/index',
+      'pages/record/index'
     ],
     window: {
       backgroundTextStyle: 'light',
       navigationBarBackgroundColor: '#41b378',
-      navigationBarTextStyle: 'white',
-      navigationStyle: 'custom'
+      navigationBarTextStyle: 'white'
     },
+    // tabBar: {
+    //   color: '#333',
+    //   selectedColor: '#333',
+    //   backgroundColor: '#fff',
+    //   list: [
+    //     {
+    //       "pagePath": "pages/index/index",
+    //       "iconPath": "",
+    //       "selectedIconPath": "",
+    //       "text": "明细"
+    //     },
+    //     {
+    //       "pagePath": "pages/record/index",
+    //       "iconPath": "",
+    //       "selectedIconPath": "",
+    //       "text": "统计"
+    //     }
+    //   ],
+    //   custom: true
+    // },
     cloud: true
   }
 

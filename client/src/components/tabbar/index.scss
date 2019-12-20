@@ -1,0 +1,70 @@
+.tabbar {
+  width: 100%;
+  height: 136px;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  .wrap {
+    position: relative;
+    top: 25px;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    height: 110px;
+    .tabbar-item {
+      width: 50%;
+      text-align: center;
+      line-height: 110px;
+      border-top: 4px solid #f5f5f5;
+      box-sizing: border-box;
+    }
+  }
+
+  .center {
+    position: absolute;
+    top: 0px;
+    left: 50%;
+    width: 136px;
+    height: 136px;
+    margin-left: -60px;
+    overflow: hidden;
+    .circ {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      margin-left: -68px;
+      width: 136px;
+      height: 136px;
+      border-radius: 50%;
+      border: 4px solid #f5f5f5;
+      background: #fff;
+      box-sizing: border-box;
+    }
+    .icon-w {
+      position: absolute;
+      top: 26px;
+      left: 50%;
+      margin-left: -50px;
+      background: #42b37b;
+      border-radius: 50%;
+      width: 100px;
+      height: 100px;
+      text-align: center;
+      line-height: 100px;
+      border: 1px solid #589c7d;
+      box-sizing: border-box;
+      z-index: 3;
+    }
+    .rect {
+      position: absolute;
+      top: 29px;
+      left: 50%;
+      margin-left: -68px;
+      width: 136px;
+      height: 136px;
+      z-index: 2;
+      background: #fff;
+    }
+  }
+}

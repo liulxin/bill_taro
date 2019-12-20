@@ -4,6 +4,7 @@ import './index.scss'
 
 import Login from '../../components/login/index.weapp'
 import NavBar from '../../components/navbar/index.weapp'
+import TabBar from '../../components/tabbar/index.weapp'
 
 export default class Index extends Component {
 
@@ -15,7 +16,11 @@ export default class Index extends Component {
    * 提示和声明 navigationBarTextStyle: 'black' | 'white' 类型冲突, 需要显示声明类型
    */
   config: Config = {
-    navigationBarTitleText: '首页'
+    navigationBarTitleText: '首页',
+    navigationStyle: 'custom',
+    usingComponents: {
+      
+    }
   }
 
   componentWillMount () { }
@@ -33,8 +38,9 @@ export default class Index extends Component {
   render () {
     return (
       <View className='index'>
-        <NavBar/>
+        <NavBar textpos="center" icon="setting"/>
         <Login/>
+        <TabBar />
       </View>
     )
   }
