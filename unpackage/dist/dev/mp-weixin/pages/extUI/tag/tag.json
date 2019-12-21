@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "Tag 标签",
+  "usingComponents": {
+    "uni-tag": "/components/uni-tag/uni-tag",
+    "uni-section": "/components/uni-section/uni-section"
+  }
+}

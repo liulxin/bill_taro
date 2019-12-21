@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "NumberBox 数字输入框",
+  "usingComponents": {
+    "uni-number-box": "/components/uni-number-box/uni-number-box",
+    "uni-section": "/components/uni-section/uni-section"
+  }
+}
