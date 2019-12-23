@@ -1,36 +1,40 @@
-import Taro, { Component, Config } from '@tarojs/taro'
-import { View, Text } from '@tarojs/components'
+/* eslint-disable react/sort-comp */
+import Taro, { Component } from '@tarojs/taro'
+import { View } from '@tarojs/components'
+import CustomNav from '../../components/custom-nav/index.weapp'
+import CustomTab from '../../components/custom-tab/index.weapp'
 import './index.scss'
-
-import Login from '../../components/login/index'
 
 export default class Index extends Component {
 
-  /**
-   * 指定config的类型声明为: Taro.Config
-   *
-   * 由于 typescript 对于 object 类型推导只能推出 Key 的基本类型
-   * 对于像 navigationBarTextStyle: 'black' 这样的推导出的类型是 string
-   * 提示和声明 navigationBarTextStyle: 'black' | 'white' 类型冲突, 需要显示声明类型
-   */
-  config: Config = {
-    navigationBarTitleText: '首页'
+  config: Taro.Config = {
+    navigationBarTitleText: '首页',
+    navigationStyle: 'custom'
   }
 
-  componentWillMount () { }
+  test() {
+    Taro.navigateTo({
+      url: '../setting/index'
+    })
+  }
 
-  componentDidMount () { }
+  componentWillMount() { }
 
-  componentWillUnmount () { }
+  componentDidMount() { }
 
-  componentDidShow () { }
+  componentWillUnmount() { }
 
-  componentDidHide () { }
+  componentDidShow() { }
 
-  render () {
+  componentDidHide() { }
+
+  render() {
     return (
       <View className='index'>
-        <Login/>
+        <CustomNav title='记账本' />
+        <View onClick={this.test}>index</View>
+
+        <CustomTab />
       </View>
     )
   }

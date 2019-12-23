@@ -1,6 +1,8 @@
 const cloud = require('wx-server-sdk')
 
-cloud.init()
+cloud.init({
+  env: 'yuntest-wcqeq'
+})
 
 
 exports.main = async () => {
