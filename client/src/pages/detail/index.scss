@@ -1,0 +1,12 @@
+@import '../../assets/style/common.scss';
+
+.p-40 {
+  padding: 0 40px;
+  box-sizing: border-box;
+}
+.category {
+  height: 60px;
+  background: $bgColor;
+  color: #fff;
+  line-height: 60px;
+}

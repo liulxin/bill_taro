@@ -4,6 +4,7 @@ import { onError, Provider } from '@tarojs/mobx'
 import Index from './pages/index'
 import StatusBarHeight from './store/status_bar_height'
 import CurrentPage from './store/current_page'
+import User from './store/user_id'
 
 import './app.scss'
 import './assets/fonts/iconfont.scss'
@@ -14,7 +15,8 @@ onError(error => {
 
 const store = {
   StatusBarHeight,
-  CurrentPage
+  CurrentPage,
+  User
 }
 
 class App extends Component {

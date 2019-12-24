@@ -62,6 +62,7 @@ export default class CustomTab extends Component<any> {
 
   render() {
     const { list, add } = this.state
+    // ???????? ????????
     const { CurrentPage: { curSelectIndex, curSelectIndexChange, setAdd } } = this.props
     return (
       <CoverView className='custom-tab'>
