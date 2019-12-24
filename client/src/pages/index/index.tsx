@@ -12,12 +12,6 @@ export default class Index extends Component {
     navigationStyle: 'custom'
   }
 
-  test() {
-    Taro.navigateTo({
-      url: '../setting/index'
-    })
-  }
-
   componentWillMount() { }
 
   componentDidMount() { }
@@ -32,8 +26,7 @@ export default class Index extends Component {
     return (
       <View className='index'>
         <CustomNav title='记账本' />
-        <View onClick={this.test}>index</View>
-
+          index
         <CustomTab />
       </View>
     )

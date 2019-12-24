@@ -69,7 +69,7 @@ export default class CustomTab extends Component<any> {
           {
             list.map((item, index) => {
               return (
-                <CoverView onClick={() => curSelectIndexChange(index)} className='tab-item' key={item.key}>
+                <CoverView onClick={() => curSelectIndexChange(index)} className='tab-item' key={index}>
                   <CoverImage className={'img ' + item.key} src={curSelectIndex === index ? item.selectIcon : item.icon}></CoverImage>
                   <CoverView className='text' style={`color: ${curSelectIndex === index ? item.selectColor : item.color} `}>{item.text}</CoverView>
                 </CoverView>
