@@ -17,6 +17,10 @@ exports.main = async event => {
       .where({
         parent: event.id
       })
+      .field({
+        name: true,
+        icon: true
+      })
       .get();
 
     return res;

@@ -8,7 +8,8 @@ import ActionSheet from '../../components/action-sheet/index.weapp'
 import './index.scss'
 
 interface State {
-  catText: string
+  catText: string,
+  isOpened: boolean
 }
 
 @inject('User')
@@ -16,7 +17,8 @@ interface State {
 export default class Detail extends Component<any> {
 
   state: State = {
-    catText: '类型'
+    catText: '类型',
+    isOpened: false
   }
 
   showCat() {
@@ -30,16 +32,27 @@ export default class Detail extends Component<any> {
     }).then(res => {
       console.log(res)
     })
+    this.setState({
+      isOpened: true
+    })
+  }
+
+  closeHandler() {
+    this.setState({
+      isOpened: false
+    })
   }
 
   render() {
-    let { catText } = this.state
+    let { catText, isOpened } = this.state
     return (
       <View className='detail'>
         <View className='category p-40' onClick={this.showCat}>
           {catText} <AtIcon value='chevron-down' size='16' color='#FFF'></AtIcon>
         </View>
-        <ActionSheet />
+        <ActionSheet title='请选择类型' closeHandler={this.closeHandler.bind(this)} isOpened={isOpened} renderSubHeader={<View></View>}>
+          <View>this is children</View>
+        </ActionSheet>
       </View>
     )
   }

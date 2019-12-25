@@ -49,7 +49,9 @@ export default class Index extends Component<any> {
     return (
       <View className='index'>
         <CustomNav title='记账本' />
-        <Detail />
+        <View className='flex-1'>
+          <Detail />
+        </View>
         <CustomTab />
       </View>
     )
