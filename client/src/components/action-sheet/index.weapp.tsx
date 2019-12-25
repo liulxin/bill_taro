@@ -15,7 +15,7 @@ export default class ActionSheet extends Component<any> {
   static defaultProps: Props = {
     isOpened: false,
     title: '请选择类型',
-    height: 200
+    height: 100
   }
 
   render() {

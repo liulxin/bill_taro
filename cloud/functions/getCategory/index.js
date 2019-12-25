@@ -19,7 +19,8 @@ exports.main = async event => {
       })
       .field({
         name: true,
-        icon: true
+        icon: true,
+        get: true
       })
       .get();
 

@@ -7,51 +7,58 @@ import ActionSheet from '../../components/action-sheet/index.weapp'
 
 import './index.scss'
 
-interface State {
-  catText: string,
-  isOpened: boolean
-}
-
 @inject('User')
 @observer
 export default class Detail extends Component<any> {
 
-  state: State = {
-    catText: '类型',
-    isOpened: false
-  }
-
   showCat() {
-    const { User: {id}} = this.props
+    const { User: { id, setCategorys, setCatIsOpened } } = this.props
 
-    Taro.cloud.callFunction({
-      name: "getCategory",
-      data: {
-        id
-      }
-    }).then(res => {
-      console.log(res)
-    })
-    this.setState({
-      isOpened: true
-    })
+    const data = Taro.getStorageSync('categorys')
+    if (!data) {
+      Taro.cloud.callFunction({
+        name: "getCategory",
+        data: {
+          id
+        }
+      }).then(res => {
+        setCategorys(res.result.data)
+      })
+    }
+    setCatIsOpened(true)
   }
 
   closeHandler() {
-    this.setState({
-      isOpened: false
-    })
+    const { User: { setCatIsOpened } } = this.props
+    setCatIsOpened(false)
   }
 
+  componentDidMount() { }
+
   render() {
-    let { catText, isOpened } = this.state
+    let { User: { setCatId, catId, catText, outgoings, income, catIsOpened } } = this.props
+
     return (
       <View className='detail'>
         <View className='category p-40' onClick={this.showCat}>
           {catText} <AtIcon value='chevron-down' size='16' color='#FFF'></AtIcon>
         </View>
-        <ActionSheet title='请选择类型' closeHandler={this.closeHandler.bind(this)} isOpened={isOpened} renderSubHeader={<View></View>}>
-          <View>this is children</View>
+        <ActionSheet title='请选择类型' closeHandler={this.closeHandler.bind(this)} isOpened={catIsOpened} renderSubHeader={<View></View>} height={300}>
+          <View className='bb'>
+            <View className={`all item ${catId === 'all' ? 'active' : ''}`} onClick={() => setCatId('all')}>全部明细</View>
+            <View className='tip'>支出</View>
+            <View className='flex'>
+              {
+                income.map(item => <View className={`item ${catId === item._id ? 'active' : ''}`} onClick={() => setCatId(item._id)} key={String(item._id)}>{item.name}</View>)
+              }
+            </View>
+            <View className='tip'>收入</View>
+            <View className='flex'>
+              {
+                outgoings.map(item => <View className={`item ${catId === item._id ? 'active' : ''}`} onClick={() => setCatId(item._id)} key={String(item._id)}>{item.name}</View>)
+              }
+            </View>
+          </View>
         </ActionSheet>
       </View>
     )
