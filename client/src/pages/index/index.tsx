@@ -5,6 +5,7 @@ import { inject, observer } from '@tarojs/mobx'
 import CustomNav from '../../components/custom-nav/index.weapp'
 import CustomTab from '../../components/custom-tab/index.weapp'
 import CatActionSheet from '../../components/cat-action-sheet/index.weapp'
+import AddCom from '../../components/add-com/index.weapp'
 
 import Detail from '../detail/index'
 import Record from '../record/index'
@@ -54,6 +55,7 @@ export default class Index extends Component<any> {
         <View className='flex-1'>
           {Page}
           <CatActionSheet />
+          <AddCom />
           <CustomTab />
         </View>
       </View>
