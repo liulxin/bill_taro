@@ -18,9 +18,9 @@ exports.main = async event => {
         parent: event.id
       })
       .field({
-        name: true,
-        icon: true,
-        get: true
+        'name': true,
+        'icon': true,
+        'get': true
       })
       .get();
 

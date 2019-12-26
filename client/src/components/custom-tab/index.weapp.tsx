@@ -1,5 +1,5 @@
 import Taro, { Component } from '@tarojs/taro'
-import { CoverView, CoverImage } from '@tarojs/components'
+import { View, Image } from '@tarojs/components'
 import { inject, observer } from '@tarojs/mobx'
 
 import config from '../../util/config'
@@ -35,16 +35,16 @@ const state: State = {
       color: '#737375',
       selectColor: '#39b878',
       text: '明细',
-      icon: tabicon_base_url + '/detail.png',
-      selectIcon: tabicon_base_url + '/detail_a.png'
+      icon: tabicon_base_url + '/detail.png?1',
+      selectIcon: tabicon_base_url + '/detail_a.png?1'
     },
     {
       key: 'record',
       color: '#737375',
       selectColor: '#39b878',
       text: '统计',
-      icon: tabicon_base_url + '/record.png',
-      selectIcon: tabicon_base_url + '/record_a.png'
+      icon: tabicon_base_url + '/record.png?1',
+      selectIcon: tabicon_base_url + '/record_a.png?1'
     }
   ],
   add: {
@@ -62,30 +62,30 @@ export default class CustomTab extends Component<any> {
 
   render() {
     const { list, add } = this.state
-    // ???????? ????????
+    // curPage
     const { CurrentPage: { curSelectIndex, curSelectIndexChange, setAdd } } = this.props
     return (
-      <CoverView className='custom-tab'>
-        <CoverView className='wrap'>
+      <View className='custom-tab'>
+        <View className='wrap'>
           {
             list.map((item, index) => {
               return (
-                <CoverView onClick={() => curSelectIndexChange(index)} className='tab-item' key={String(item.key)}>
-                  <CoverImage className={'img ' + item.key} src={curSelectIndex === index ? item.selectIcon : item.icon}></CoverImage>
-                  <CoverView className='text' style={`color: ${curSelectIndex === index ? item.selectColor : item.color} `}>{item.text}</CoverView>
-                </CoverView>
+                <View onClick={() => curSelectIndexChange(index)} className='tab-item' key={String(item.key)}>
+                  <Image className={'img ' + item.key} src={curSelectIndex === index ? item.selectIcon : item.icon}></Image>
+                  <View className='text' style={`color: ${curSelectIndex === index ? item.selectColor : item.color} `}>{item.text}</View>
+                </View>
               )
             })
           }
-        </CoverView>
-        <CoverView className='center' onClick={() => setAdd(true)}>
-          <CoverView className='circ'></CoverView>
-          <CoverView className='rect'></CoverView>
-          <CoverView className='icon-w'>
-            <CoverImage className='img' src={add.icon}></CoverImage>
-          </CoverView>
-        </CoverView>
-      </CoverView>
+        </View>
+        <View className='center' onClick={() => setAdd(true)}>
+          <View className='circ'></View>
+          <View className='rect'></View>
+          <View className='icon-w'>
+            <Image className='img' src={add.icon} mode='widthFix'></Image>
+          </View>
+        </View>
+      </View>
     )
   }
 }

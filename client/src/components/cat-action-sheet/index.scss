@@ -1,0 +1,51 @@
+.bb{
+  padding: 30px;
+  box-sizing: border-box;
+}
+
+.flex {
+  display: flex;
+  flex-flow: row wrap;
+  align-content: flex-start;
+}
+
+.item {
+  // width: 205px;
+  flex: 0 0 30%;
+  height: 105px;
+  line-height: 105px;
+  text-align: center;
+  color: #0c0c0c;
+  background: #ffffff;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-left: 2.5%;
+  margin-right: 2.5%;
+  font-size: 32px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow:ellipsis;
+
+  &.all {
+    width: 30%;
+  }
+
+  &:nth-of-type(3n + 1) {
+    margin-left: 0;
+  }
+
+  &:nth-of-type(3n) {
+    margin-right: 0;
+  }
+  
+  &.active {
+    color: #fbffff;
+    background: #42b478;
+  }
+}
+
+.tip {
+  color: #777777;
+  font-size: 28px;
+  margin:  10px 0;
+}

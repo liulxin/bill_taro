@@ -4,8 +4,10 @@ import { View } from '@tarojs/components'
 import { inject, observer } from '@tarojs/mobx'
 import CustomNav from '../../components/custom-nav/index.weapp'
 import CustomTab from '../../components/custom-tab/index.weapp'
+import CatActionSheet from '../../components/cat-action-sheet/index.weapp'
 
 import Detail from '../detail/index'
+import Record from '../record/index'
 import './index.scss'
 
 @inject('User')
@@ -44,15 +46,16 @@ export default class Index extends Component<any> {
   }
 
   render() {
-    const {CurrentPage: {curSelectIndex}} = this.props
-    console.log(curSelectIndex)
+    const { CurrentPage: { curSelectIndex } } = this.props
+    const Page = curSelectIndex === 0 ? <Detail /> : <Record />
     return (
       <View className='index'>
         <CustomNav title='记账本' />
         <View className='flex-1'>
-          <Detail />
+          {Page}
+          <CatActionSheet />
+          <CustomTab />
         </View>
-        <CustomTab />
       </View>
     )
   }
