@@ -3,6 +3,8 @@ import Taro from '@tarojs/taro'
 
 import { Cat } from "../util/interface";
 
+import {year, month} from '../util/config'
+
 const data = Taro.getStorageSync('categorys')
 
 class User {
@@ -10,6 +12,9 @@ class User {
   @observable catId: string = "all";
   @observable categorys: Cat[] = data ? data : [];
   @observable catIsOpened: boolean = false;
+  @observable dateInOutIsOpened: boolean = false;
+  @observable deTyear: number = year
+  @observable deTmonth: number = month
 
   @action.bound
   setId(id: number) {
@@ -36,6 +41,18 @@ class User {
     this.catIsOpened = bol;
   }
 
+  @action.bound
+  setDetYearMonth(time: string) {
+    let t = time.split('-')
+    this.deTyear = Number(t[0])
+    this.deTmonth = Number(t[1])
+  }
+
+  @action.bound
+  setDateInOutIsOpened(bol: boolean) {
+    this.dateInOutIsOpened = bol;
+  }
+
   @computed get income() {
     return this.categorys.filter(item => item.get);
   }
@@ -48,7 +65,7 @@ class User {
     let id = this.catId;
     let arr = this.categorys.filter(item => item._id === id);
 
-    return arr.length ? arr[0].name : "全部明细";
+    return arr.length ? arr[0].name : "分类";
   }
 }
 

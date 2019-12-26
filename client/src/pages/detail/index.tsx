@@ -12,7 +12,7 @@ import './index.scss'
 @observer
 export default class Detail extends Component<any> {
 
-  // 类型
+  // ç±»åž‹
   showCat() {
     const { User: { id, setCategorys, setCatIsOpened } } = this.props
 

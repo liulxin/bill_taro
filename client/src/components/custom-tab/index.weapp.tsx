@@ -2,7 +2,7 @@ import Taro, { Component } from '@tarojs/taro'
 import { View, Image } from '@tarojs/components'
 import { inject, observer } from '@tarojs/mobx'
 
-import config from '../../util/config'
+import {tabicon_base_url} from '../../util/config'
 
 import './index.scss'
 
@@ -25,8 +25,6 @@ interface State {
   list: Array<List>,
   add: Add
 }
-
-const { tabicon_base_url } = config
 
 const state: State = {
   list: [
