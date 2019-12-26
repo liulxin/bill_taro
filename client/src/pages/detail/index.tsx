@@ -4,6 +4,8 @@ import { View } from '@tarojs/components'
 import { inject, observer } from '@tarojs/mobx'
 import { AtIcon } from 'taro-ui'
 
+import DateInOutCom from '../../components/date-inout-com/index.weapp'
+
 import './index.scss'
 
 @inject('User')
@@ -37,6 +39,7 @@ export default class Detail extends Component<any> {
         <View className='category p-40' onClick={this.showCat}>
           {catText} <AtIcon value='chevron-down' size='16' color='#FFF'></AtIcon>
         </View>
+        <DateInOutCom />
       </View>
     )
   }

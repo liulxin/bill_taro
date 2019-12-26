@@ -1,0 +1,24 @@
+.date-inout {
+  height: 120px;
+  background: #f7f7f5;
+  padding: 0 40px;
+  line-height: 120px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.date {
+  .text {
+    color: #000;
+    margin-right: 10px;
+    font-size: 28px;
+  }
+}
+
+.money {
+  color: #000;
+  font-size: 28px;
+  .out{
+    margin-right: 10px;
+  }
+}
