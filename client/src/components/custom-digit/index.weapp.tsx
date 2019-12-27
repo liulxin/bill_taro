@@ -73,10 +73,10 @@ export default class CustomDigit extends Component<any> {
     confBackground: '#38b56f',
     value: '',
     confirm: function (value) {
-      console.log(value)
+      console.log('def', value)
     },
     valueChange: function (value) {
-      console.log(value)
+      console.log('def', value)
     }
   }
 
@@ -87,6 +87,7 @@ export default class CustomDigit extends Component<any> {
   confirmHandler() {
     const { confirm } = this.props
     const { value } = this.state
+    console.log(confirm)
     confirm(value)
   }
 
@@ -98,7 +99,7 @@ export default class CustomDigit extends Component<any> {
   // 删除
   cancelHandler() {
     const { value } = this.state
-    if(!value) {
+    if (!value) {
       return
     }
     this.setState({

@@ -1,18 +1,8 @@
+@import '../../assets/style/common.scss';
+
 .gutter {
   padding: 10px;
   box-sizing: border-box;
-}
-
-.flex {
-  display: flex;
-}
-
-.jc-between {
-  justify-content: space-between;
-}
-
-.flex-w {
-  flex-wrap: wrap;
 }
 
 .custom-digit {

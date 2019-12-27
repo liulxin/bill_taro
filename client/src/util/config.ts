@@ -4,5 +4,6 @@ const time = new Date()
 // 当前年份 月份 周几
 const year = time.getFullYear()
 const month = time.getMonth() + 1
+const day = time.getDate()
 
-export {tabicon_base_url, year, month}
+export {tabicon_base_url, year, month, day}
