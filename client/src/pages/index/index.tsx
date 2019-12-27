@@ -6,7 +6,8 @@ import CustomNav from '../../components/custom-nav/index.weapp'
 import CustomTab from '../../components/custom-tab/index.weapp'
 import CatActionSheet from '../../components/cat-action-sheet/index.weapp'
 import AddCom from '../../components/add-com/index.weapp'
-
+import AddDesc from '../../components/add-desc/index.weapp'
+import AddCat from '../../components/add-cat/index.weapp'
 import Detail from '../detail/index'
 import Record from '../record/index'
 import './index.scss'
@@ -56,6 +57,8 @@ export default class Index extends Component<any> {
           {Page}
           <CatActionSheet />
           <AddCom />
+          <AddDesc />
+          <AddCat />
           <CustomTab />
         </View>
       </View>

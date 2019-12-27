@@ -73,7 +73,7 @@ export default class AddCom extends Component<any> {
   }
 
   render() {
-    const { CurrentPage: { add }, User: { income, outgoings } } = this.props
+    const { CurrentPage: { add }, User: { income, outgoings, setaddDescOpened } } = this.props
     const { value, get, confBackground_, confBackground, catId, desc } = this.state
     const cats = get ? income : outgoings
     return (
@@ -110,7 +110,7 @@ export default class AddCom extends Component<any> {
         </ScrollView>
         <View className='desc'>
           <Text className='inp'>{desc}</Text>
-          <Text className='lab'>{desc ? '修改' : '添加备注'}</Text>
+          <Text className='lab' onClick={() => { setaddDescOpened(true) }}>{desc ? '修改' : '添加备注'}</Text>
         </View>
         <CustomDigit confBackground_={confBackground_} confBackground={confBackground} valueChange={this.handleChange.bind(this)} confirm={this.confirmHandler.bind(this)} />
       </ActionSheet>

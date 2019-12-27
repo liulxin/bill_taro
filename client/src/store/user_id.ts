@@ -15,6 +15,9 @@ class User {
   @observable dateInOutIsOpened: boolean = false;
   @observable deTyear: number = year
   @observable deTmonth: number = month
+  @observable addDescOpened: boolean = false
+  @observable addCatOpened: boolean = false
+  @observable addDescValue: string = ''
 
   @action.bound
   setId(id: number) {
@@ -37,8 +40,24 @@ class User {
   }
 
   @action.bound
+  setaddDescOpened(bol: boolean) {
+    this.addDescOpened = bol;
+  }
+
+  @action.bound
+  setaddCatOpened(bol: boolean) {
+    this.addCatOpened = bol;
+  }
+
+  @action.bound
   setCatIsOpened(bol: boolean) {
     this.catIsOpened = bol;
+  }
+
+  @action.bound
+  setaddDescValue(value: string) {
+    console.log(value)
+    this.addDescValue = value
   }
 
   @action.bound
