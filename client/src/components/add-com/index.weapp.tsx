@@ -73,7 +73,7 @@ export default class AddCom extends Component<any> {
   }
 
   render() {
-    const { CurrentPage: { add }, User: { income, outgoings, setaddDescOpened } } = this.props
+    const { CurrentPage: { add }, User: { income, outgoings, setaddDescOpened, setaddCatOpened } } = this.props
     const { value, get, confBackground_, confBackground, catId, desc } = this.state
     const cats = get ? income : outgoings
     return (
@@ -101,7 +101,7 @@ export default class AddCom extends Component<any> {
               </View>
             ))
           }
-          <View className='cat catadd'>
+          <View className='cat catadd' onClick={() => { setaddCatOpened(true) }}>
             <View className='b'>
               <AtIcon value='add' size='18' color='#c6c6c6'></AtIcon>
             </View>
